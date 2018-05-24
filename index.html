@@ -13,8 +13,6 @@
 </head>
 <body>
 
-  <header>Header</header>
-
   <div class="container-fluid"
        data-page-container>
     <div class="row">
@@ -23,40 +21,24 @@
         <!--Sidebar content-->
 
         <section>
-          <p>
-            Search:
-            <input>
-          </p>
-
-          <p>
-            Sort by:
-            <select>
-              <option value="name">Alphabetical</option>
-              <option value="age">Newest</option>
-            </select>
-          </p>
+          <div data-component="search"></div>
+          <div data-component="sorter"></div>
         </section>
 
         <section>
-          <p>Shopping Cart</p>
-          <ul>
-            <li>Phone 1</li>
-            <li>Phone 2</li>
-            <li>Phone 3</li>
-          </ul>
+          <div data-component="shopping-cart"></div>
         </section>
       </div>
 
       <div class="col-md-10">
         <!--Body content-->
+        <div data-component="phone-viewer" class="js-hidden"></div>
         <div data-component="phones-catalog"></div>
 
       </div>
 
     </div>
   </div>
-
-  <footer>Footer</footer>
 
 </body>
 </html>
