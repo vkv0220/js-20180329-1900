@@ -1,25 +1,18 @@
 'use strict';
 
-
 const PhonesService = {
   loadPhones(callback) {
-    let xhr = new XMLHttpRequest();
-
-    xhr.open('GET', '/api/phones', true);
-
-    xhr.send();
-
-    xhr.onload = () => {
-      let data = JSON.parse(xhr.responseText);
-
-      callback(data);
-    };
+    this._sendRequest('/api/phones', callback);
   },
 
   loadPhone(phoneId, callback) {
+    this._sendRequest(`/api/phones/${ phoneId }`, callback);
+  },
+
+  _sendRequest(url, callback, { method = 'GET' } = {}) {
     let xhr = new XMLHttpRequest();
 
-    xhr.open('GET', `/api/phones/${ phoneId }`, true);
+    xhr.open(method, url, true);
 
     xhr.send();
 
